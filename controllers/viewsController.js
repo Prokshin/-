@@ -1,4 +1,5 @@
 const Project = require("../models/projectModel");
+const Team = require("../models/teamModel");
 
 exports.getHome = (req, res) => {
   res.status(200).render("home.hbs");
@@ -14,7 +15,6 @@ exports.getAllProjects = async (req, res, next) => {
 
 exports.getProject = async (req, res, next) => {
   const project = await Project.findById(req.params.id);
-  console.log(project);
   res.status(200).render("./project-page.hbs", {
     title: project.title,
     description: project.description,
@@ -22,9 +22,20 @@ exports.getProject = async (req, res, next) => {
   });
 };
 
-exports.getTeam = (req, res, next) => {
+exports.getTeam = async (req, res, next) => {
+  const team = await Team.find();
   res.render("team.hbs", {
-    team: ["Участник 1", "Участник 2"]
+    team
+  });
+};
+
+exports.getMember = async (req, res) => {
+  const member = await Team.findById(req.params.id);
+  res.render("team-page.hbs", {
+    name: member.name,
+    family: member.family,
+    position: member.position,
+    description: member.description
   });
 };
 

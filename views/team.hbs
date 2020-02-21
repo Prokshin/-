@@ -9,7 +9,9 @@
 <body>
   <h1>Наша Команда</h1>
   {{#each team}}
-  <li>{{this}}</li>
+  <h2><a href="/team/{{this._id}}">{{this.name}} {{this.family}}</a></h2>
+  <p>{{this.position}}</p>
+  <hr>
   {{/each}}
 </body>
 <html>
