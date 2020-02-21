@@ -1,16 +1,16 @@
 const express = require("express");
+const projectController = require("./../controllers/projectController");
 
 const router = express.Router();
 
 router
   .route("/")
-  .get((req, res) => {
-    res.render("project.hbs", {
-      projects: ["Проект 1", "Проект 2", "Проект 3"]
-    });
-  })
-  .post((req, res) => {
-    res.status(201).json({ status: "success" });
-  });
+  .get(projectController.getAllProjects)
+  .post(projectController.createProject);
+
+router
+  .route("/:id")
+  .get(projectController.getProject)
+  .patch(projectController.updateProject);
 
 module.exports = router;

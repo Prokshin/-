@@ -1,17 +1,24 @@
+const Project = require("../models/projectModel");
+
 exports.getHome = (req, res) => {
   res.status(200).render("home.hbs");
 };
 
-exports.getAllProjects = (req, res, next) => {
+exports.getAllProjects = async (req, res, next) => {
+  const projects = await Project.find();
+
   res.status(200).render("project.hbs", {
-    projects: ["Проект 1", "Проект 2", "Проект 3"]
+    projects
   });
 };
 
-exports.getProject = (req, res, next) => {
+exports.getProject = async (req, res, next) => {
+  const project = await Project.findById(req.params.id);
+  console.log(project);
   res.status(200).render("./project-page.hbs", {
-    name: `Проект номер ${req.params.id}`,
-    description: `Крутое описание проекта номер ${req.params.id}`
+    title: project.title,
+    description: project.description,
+    text: project.text
   });
 };
 
