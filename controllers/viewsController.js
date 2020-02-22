@@ -1,5 +1,6 @@
 const Project = require("../models/projectModel");
 const Team = require("../models/teamModel");
+const News = require("../models/newsModel");
 
 exports.getHome = (req, res) => {
   res.status(200).render("home.hbs");
@@ -39,25 +40,10 @@ exports.getMember = async (req, res) => {
   });
 };
 
-exports.getNews = (req, res, next) => {
+exports.getAllNews = async (req, res, next) => {
+  const news = await News.find();
   res.render("news.hbs", {
-    news: [
-      {
-        title: "Заголовок 1",
-        text:
-          "Текст описывющий событие 1, которое является невероятно важным для нас, но вам всё-равно"
-      },
-      {
-        title: "Заголовок 2",
-        text:
-          "Текст описывющий событие 3, которое является невероятно важным для нас, но вам всё-равно"
-      },
-      {
-        title: "Заголовок 3",
-        text:
-          "Текст описывющий событие 3, которое является невероятно важным для нас, но вам всё-равно"
-      }
-    ]
+    news
   });
 };
 
