@@ -68,3 +68,11 @@ exports.getContact = (req, res, next) => {
 exports.getAchievments = (req, res, next) => {
   res.render("achievments.hbs");
 };
+
+exports.getVacancy = (req, res, next) => {
+  res.render("vacancy.hbs");
+};
+
+exports.postVacancy = (req, res) => {
+  res.send("ваше резюме отправлено");
+};

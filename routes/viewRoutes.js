@@ -10,4 +10,6 @@ router.get("/team/:id", viewController.getMember);
 router.get("/news", viewController.getNews);
 router.get("/contact", viewController.getContact);
 router.get("/achievments", viewController.getAchievments);
+router.get("/vacancy", viewController.getVacancy);
+router.post("/vacancy", viewController.postVacancy);
 module.exports = router;

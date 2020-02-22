@@ -9,6 +9,7 @@ const dotenv = require("dotenv");
 const viewRouter = require("./routes/viewRoutes");
 const projectRouter = require("./routes/projectsRoutes");
 const teamRouter = require("./routes/teamRoutes");
+const newsRouter = require("./routes/newsRoutes");
 
 dotenv.config({ path: "./config.env" });
 
@@ -39,6 +40,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use("/", viewRouter);
 app.use("/api/projects", urlencodedParser, projectRouter);
 app.use("/api/team", urlencodedParser, teamRouter);
+app.use("/api/news", urlencodedParser, newsRouter);
 app.listen(9000, function() {
   console.log("App work at 9000!");
 });
