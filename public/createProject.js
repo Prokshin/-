@@ -1,5 +1,6 @@
-const Create = async (tittle, description, text) => {
-  await fetch("/create-project", {
+const Create = async (title, description, text) => {
+  console.log("[b");
+  await fetch("/admin/project", {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, cors, *same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -10,15 +11,16 @@ const Create = async (tittle, description, text) => {
     },
     redirect: "follow", // manual, *follow, error
     referrer: "no-referrer", // no-referrer, *client
-    body: JSON.stringify({ tittle, description, text }) // тип данных в body должен соответвовать значению заголовка "Content-Type"
+    body: JSON.stringify({ title, description, text }) // тип данных в body должен соответвовать значению заголовка "Content-Type"
   });
+  alert("Проект создан");
   window.location.replace("/admin");
 };
 
 document.querySelector(".form").addEventListener("submit", e => {
   e.preventDefault();
-  const tittle = document.getElementById("tittle").value;
+  const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
   const text = document.getElementById("text").value;
-  Create(tittle, description, text);
+  Create(title, description, text);
 });

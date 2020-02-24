@@ -1,6 +1,7 @@
 const express = require("express");
 const viewController = require("../controllers/viewsController");
 const authContoller = require("../controllers/authController");
+const projectController = require("../controllers/projectController");
 const router = express.Router();
 router.get("/", viewController.getHome);
 router.get("/project", viewController.getAllProjects);
@@ -19,5 +20,10 @@ router.get(
   "/admin/project",
   authContoller.isLogin,
   viewController.getAdminProject
+);
+router.post(
+  "/admin/project",
+  authContoller.isLogin,
+  projectController.createProject
 );
 module.exports = router;
