@@ -62,3 +62,10 @@ exports.getVacancy = (req, res, next) => {
 exports.postVacancy = (req, res) => {
   res.send("ваше резюме отправлено");
 };
+
+exports.getLogin = (req, res) => {
+  res.render("auth.hbs");
+};
+exports.getAdmin = (req, res) => {
+  res.render("admin.hbs");
+};

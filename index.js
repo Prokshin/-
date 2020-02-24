@@ -5,14 +5,15 @@ const expressHbs = require("express-handlebars");
 const hbs = require("hbs");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
+const cookieParser = require("cookie-parser");
 const viewRouter = require("./routes/viewRoutes");
 const projectRouter = require("./routes/projectsRoutes");
-const teamRouter = require("./routes/teamRoutes");
+const teamRouter = require("./routes/userRoutes");
 const newsRouter = require("./routes/newsRoutes");
 
 dotenv.config({ path: "./config.env" });
-
+app.use(bodyParser.json());
+app.use(cookieParser());
 const DB = process.env.DATABASE;
 app.use(express.static(__dirname + "/public"));
 mongoose

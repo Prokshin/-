@@ -1,6 +1,6 @@
 const express = require("express");
 const viewController = require("../controllers/viewsController");
-
+const authContoller = require("../controllers/authController");
 const router = express.Router();
 router.get("/", viewController.getHome);
 router.get("/project", viewController.getAllProjects);
@@ -12,4 +12,7 @@ router.get("/contact", viewController.getContact);
 router.get("/achievments", viewController.getAchievments);
 router.get("/vacancy", viewController.getVacancy);
 router.post("/vacancy", viewController.postVacancy);
+router.get("/login", viewController.getLogin);
+router.post("/login", authContoller.login);
+router.get("/admin", authContoller.isLogin, viewController.getAdmin);
 module.exports = router;

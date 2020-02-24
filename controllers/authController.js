@@ -34,7 +34,7 @@ const createSendToken = (user, statusCode, res) => {
 };
 
 exports.login = async (req, res, next) => {
-  console.log(req.body);
+  console.log("in login");
   const { email, password } = req.body;
   console.log(email);
   console.log(password);
@@ -43,8 +43,9 @@ exports.login = async (req, res, next) => {
     return next(new AppError("Please provide email and password!", 400));
   }
   // 2) Check if user exists && password is correct
-  const user = await User.findOne({ email });
-
+  const user = await User.findOne({ email }).select("+password");
+  console.log(`ГГ${user}ГГ `);
+  console.log(password);
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next(new AppError("Incorrect email or password", 401));
   }
@@ -70,7 +71,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 
   // 2) Verification token
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const decoded = await jwt.verify(token, process.env.JWT_SECRET);
 
   // 3) Check if user still exists
   const currentUser = await User.findById(decoded.id);
@@ -92,5 +93,21 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   // GRANT ACCESS TO PROTECTED ROUTE
   req.user = currentUser;
+  next();
+});
+
+exports.isLogin = catchAsync(async (req, res, next) => {
+  const decoded = await jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
+  const currentUser = await User.findById(decoded.id);
+  if (!currentUser) {
+    return next(
+      new AppError(
+        "The user belonging to this token does no longer exist.",
+        401
+      )
+    );
+  }
+  req.user = currentUser;
+  console.log("all ok");
   next();
 });

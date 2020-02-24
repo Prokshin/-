@@ -39,6 +39,7 @@ exports.getProject = async (req, res) => {
 
 exports.createProject = async (req, res) => {
   try {
+    console.log(req.body);
     const newProject = await Project.create(req.body);
     console.log(req.body);
     res.status(201).json({
