@@ -14,7 +14,7 @@ const newsRouter = require("./routes/newsRoutes");
 dotenv.config({ path: "./config.env" });
 
 const DB = process.env.DATABASE;
-
+app.use(express.static(__dirname + "/public"));
 mongoose
   .connect(DB, {
     useUnifiedTopology: true,

@@ -9,9 +9,10 @@
 <body>
   <h1>Наши Проекты</h1>
   {{#each projects}}
-  <h2><a href="/project/{{this._id}}">{{this.title}}</a></h2>
-  <p>{{this.description}}</p>
-  <hr>
+  <div class="card">
+    <h2><a href="/project/{{this._id}}">{{this.title}}</a></h2>
+    <p>{{this.description}}</p>
+  </div>
   {{/each}}
 </body>
 <html>
