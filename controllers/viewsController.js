@@ -72,3 +72,6 @@ exports.getAdmin = (req, res) => {
 exports.getAdminProject = (req, res) => {
   res.render("admin-project.hbs");
 };
+exports.getAdminUser = (req, res) => {
+  res.render("admin-user-create.hbs");
+};

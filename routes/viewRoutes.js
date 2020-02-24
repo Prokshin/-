@@ -2,6 +2,8 @@ const express = require("express");
 const viewController = require("../controllers/viewsController");
 const authContoller = require("../controllers/authController");
 const projectController = require("../controllers/projectController");
+const userContoller = require("../controllers/userController");
+
 const router = express.Router();
 router.get("/", viewController.getHome);
 router.get("/project", viewController.getAllProjects);
@@ -26,4 +28,6 @@ router.post(
   authContoller.isLogin,
   projectController.createProject
 );
+router.get("/admin/user", authContoller.isLogin, viewController.getAdminUser);
+router.post("/admin/user", authContoller.isLogin, userContoller.createMember);
 module.exports = router;
