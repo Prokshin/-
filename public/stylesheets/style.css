@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: "Montserrat";
   max-width: 1400px;
+  margin: 0 auto;
 }
 .menu {
   padding: 20px;
@@ -26,6 +27,8 @@ a:hover {
 
 .content {
   padding: 30px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .home-name {
@@ -45,4 +48,28 @@ a:hover {
 }
 .card p {
   margin-left: 10px;
+}
+.form {
+  width: 600px;
+  margin: 0 auto;
+}
+.form input {
+  width: 100%;
+}
+
+.form textarea {
+  width: 100%;
+  height: 200px;
+}
+.form button {
+  padding: 15px;
+  width: 100%;
+}
+.project-text {
+  width: 900px;
+  position: relative;
+  margin: 0 auto;
+}
+.project-text img {
+  width: 900px;
 }

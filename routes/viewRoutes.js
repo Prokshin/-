@@ -15,4 +15,9 @@ router.post("/vacancy", viewController.postVacancy);
 router.get("/login", viewController.getLogin);
 router.post("/login", authContoller.login);
 router.get("/admin", authContoller.isLogin, viewController.getAdmin);
+router.get(
+  "/admin/project",
+  authContoller.isLogin,
+  viewController.getAdminProject
+);
 module.exports = router;
