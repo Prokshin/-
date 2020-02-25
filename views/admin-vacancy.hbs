@@ -1,0 +1,11 @@
+<h1>Заявки</h1>
+{{#each vac}}
+<div class="card">
+  <h2><a href="admin/vac/{{this._id}}">{{this.name}}</a></h2>
+  <p>{{this.email}}</p>
+  <p>{{this.position}}</p>
+  <form method="GET" action="http://127.0.0.1:9000/{{this.url}}">
+    <button type="submit">Скачать файл</button>
+  </form>
+</div>
+{{/each}}

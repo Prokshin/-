@@ -19,6 +19,7 @@ app.use(cookieParser());
 
 const DB = process.env.DATABASE;
 app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/uploads/vacancy"));
 mongoose
   .connect(DB, {
     useUnifiedTopology: true,

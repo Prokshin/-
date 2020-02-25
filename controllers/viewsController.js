@@ -1,6 +1,7 @@
 const Project = require("../models/projectModel");
 const Team = require("../models/teamModel");
 const News = require("../models/newsModel");
+const Vac = require("../models/vacancyModel");
 const date = require("date-and-time");
 
 exports.getHome = (req, res) => {
@@ -85,4 +86,10 @@ exports.getAdminUser = (req, res) => {
 };
 exports.getAdminNews = (req, res) => {
   res.render("admin-news-create.hbs");
+};
+exports.getAdminVacancy = async (req, res) => {
+  const vac = await Vac.find();
+  res.render("admin-vacancy.hbs", {
+    vac
+  });
 };
