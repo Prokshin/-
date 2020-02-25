@@ -1,13 +1,14 @@
 const Project = require("../models/projectModel");
 const Team = require("../models/teamModel");
 const News = require("../models/newsModel");
+const date = require("date-and-time");
 
 exports.getHome = (req, res) => {
   res.status(200).render("home.hbs");
 };
 
 exports.getAllProjects = async (req, res, next) => {
-  const projects = await Project.find();
+  const projects = await Project.find().sort({ _id: -1 });
 
   res.status(200).render("project.hbs", {
     projects
@@ -41,7 +42,14 @@ exports.getMember = async (req, res) => {
 };
 
 exports.getAllNews = async (req, res, next) => {
-  const news = await News.find();
+  const news = await News.find().sort({ createdAt: -1 });
+
+  let i = 0;
+  news.forEach(el => {
+    news[i].date = date.format(el.createdAt, "DD/MM/YYYY HH:mm");
+    i++;
+  });
+
   res.render("news.hbs", {
     news
   });
@@ -74,4 +82,7 @@ exports.getAdminProject = (req, res) => {
 };
 exports.getAdminUser = (req, res) => {
   res.render("admin-user-create.hbs");
+};
+exports.getAdminNews = (req, res) => {
+  res.render("admin-news-create.hbs");
 };

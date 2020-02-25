@@ -3,6 +3,7 @@ const viewController = require("../controllers/viewsController");
 const authContoller = require("../controllers/authController");
 const projectController = require("../controllers/projectController");
 const userContoller = require("../controllers/userController");
+const newsConroller = require("../controllers/newsController");
 
 const router = express.Router();
 router.get("/", viewController.getHome);
@@ -30,4 +31,6 @@ router.post(
 );
 router.get("/admin/user", authContoller.isLogin, viewController.getAdminUser);
 router.post("/admin/user", authContoller.isLogin, userContoller.createMember);
+router.get("/admin/news", authContoller.isLogin, viewController.getAdminNews);
+router.post("/admin/news", authContoller.isLogin, newsConroller.createNews);
 module.exports = router;

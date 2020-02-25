@@ -8,13 +8,16 @@
 </head>
 
 <body>
-  <h1>Новости</h1>
-  {{#each news}}
-  <h2>{{this.title}}</h2>
-  <p>{{this.description}}</p>
-  <p>{{this.text}}</p>
-  <hr>
-  {{/each}}
+  <div class="project-text">
+    <h1>Новости</h1>
+
+    {{#each news}}
+    <h2>{{this.title}}</h2><span>{{this.date}}</span>
+    <p>{{this.description}}</p>
+    <p>{{this.text}}</p>
+    <hr>
+    {{/each}}
+  </div>
 </body>
 
 </html>
