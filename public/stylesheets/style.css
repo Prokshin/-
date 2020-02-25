@@ -64,6 +64,12 @@ a:hover {
 .form button {
   padding: 15px;
   width: 100%;
+  background-color: #fff;
+  border: 5px solid #000;
+}
+.form button:hover {
+  color: #fff;
+  background-color: #000;
 }
 .project-text {
   width: 900px;

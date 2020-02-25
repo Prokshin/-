@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Вакансии</title>
-  <meta charset="utf-8" />
-</head>
-
-<body>
+<div class="project-text">
   <h1>Вакансии</h1>
-  <h2>Если вы хотите работать у нас, отправьте резюме с помощью формы</h2>
-  <form enctype="multipart/form-data" method="post" action="/vacancy">
-    <input type="file" атрибуты>
-    <input type="submit" value="Отправить">
+  <p>Если вы хотите работать у нас, отправьте резюме с помощью формы</p>
+  <form class="form" method="post" enctype="multipart/form-data" action="/vacancy">
+    <label>Файл</label><br>
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <input type="text" name="position">
+    <input type="file" name="filedata" /><br><br>
+    <input type="submit" value="Send" />
   </form>
-
-</body>
-<html>
+</div>

@@ -10,10 +10,13 @@ const viewRouter = require("./routes/viewRoutes");
 const projectRouter = require("./routes/projectsRoutes");
 const teamRouter = require("./routes/userRoutes");
 const newsRouter = require("./routes/newsRoutes");
+const multer = require("multer");
 
 dotenv.config({ path: "./config.env" });
+
 app.use(bodyParser.json());
 app.use(cookieParser());
+
 const DB = process.env.DATABASE;
 app.use(express.static(__dirname + "/public"));
 mongoose
