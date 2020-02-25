@@ -60,7 +60,6 @@ router.get("/admin/user", authContoller.isLogin, viewController.getAdminUser);
 router.post("/admin/user", authContoller.isLogin, userContoller.createMember);
 router.get("/admin/news", authContoller.isLogin, viewController.getAdminNews);
 router.post("/admin/news", authContoller.isLogin, newsConroller.createNews);
-
 router.get("/admin/vac", authContoller.isLogin, viewController.getAdminVacancy);
 //!КОСТЫЛЬ, хуйня с адресом
 router.get("/uploads/vacancy/:id", authContoller.isLogin, (req, res) => {
@@ -69,3 +68,8 @@ router.get("/uploads/vacancy/:id", authContoller.isLogin, (req, res) => {
   res.download(file);
 });
 module.exports = router;
+router.delete(
+  "/admin/vac/:id",
+  authContoller.isLogin,
+  vacancyController.deleteVacancy
+);

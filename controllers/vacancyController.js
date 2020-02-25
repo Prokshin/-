@@ -1,5 +1,5 @@
 const Vacancy = require("../models/vacancyModel");
-
+const fs = require("fs");
 exports.postVacancy = async (req, res) => {
   try {
     let filedata = req.file;
@@ -17,5 +17,27 @@ exports.postVacancy = async (req, res) => {
     }
   } catch (error) {
     console.log("gg");
+  }
+};
+
+exports.deleteVacancy = async (req, res) => {
+  try {
+    const a = await Vacancy.findByIdAndDelete(req.params.id);
+    console.log(a.url);
+    res.status(204).json({
+      status: "success",
+      data: null
+    });
+
+    fs.unlink(`${__dirname}/../${a.url}`, err => {
+      if (err) console.log(err);
+      // если возникла ошибка
+      else console.log("hello.txt was deleted");
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err
+    });
   }
 };
