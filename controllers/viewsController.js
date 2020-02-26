@@ -78,8 +78,12 @@ exports.getLogin = (req, res) => {
 exports.getAdmin = (req, res) => {
   res.render("admin.hbs");
 };
-exports.getAdminProject = (req, res) => {
-  res.render("admin-project.hbs");
+exports.getAdminProject = async (req, res) => {
+  const projects = await Project.find();
+  console.log();
+  res.render("admin-project.hbs", {
+    projects
+  });
 };
 exports.getAdminUser = (req, res) => {
   res.render("admin-user-create.hbs");

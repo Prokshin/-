@@ -32,7 +32,7 @@ exports.deleteVacancy = async (req, res) => {
     fs.unlink(`${__dirname}/../${a.url}`, err => {
       if (err) console.log(err);
       // если возникла ошибка
-      else console.log("hello.txt was deleted");
+      else console.log("file was deleted");
     });
   } catch (err) {
     res.status(400).json({

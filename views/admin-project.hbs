@@ -8,4 +8,13 @@
   <p><textarea id="text" name="text"></textarea></p>
   <button>Создать</button>
 </form>
+{{#each projects}}
+<div class="card">
+  <h2><a href="admin/vac/{{this._id}}">{{this.title}}</a></h2>
+  <p>{{this.description}}</p>
+  <button onclick="del(this.getAttribute('key'))" key="{{this._id}}">Удалить</button>
+</div>
+{{/each}}
+
 <script src="http://127.0.0.1:9000/createProject.js"></script>
+<script src="http://127.0.0.1:9000/deleteProject.js"></script>

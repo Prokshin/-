@@ -73,3 +73,8 @@ router.delete(
   authContoller.isLogin,
   vacancyController.deleteVacancy
 );
+router.delete(
+  "/admin/project/:id",
+  authContoller.isLogin,
+  projectController.deleteProject
+);
