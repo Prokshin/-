@@ -4,6 +4,7 @@ const del = async id => {
       method: "DELETE"
     });
     alert("Заявка удалена");
+    window.location.reload();
   } catch {}
 };
 

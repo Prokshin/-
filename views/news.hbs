@@ -9,14 +9,27 @@
 
 <body>
   <div class="project-text">
-    <h1>Новости</h1>
 
-    {{#each news}}
-    <h2>{{this.title}}</h2><span>{{this.date}}</span>
-    <p>{{this.description}}</p>
-    <p>{{this.text}}</p>
-    <hr>
-    {{/each}}
+    <h1>Новости</h1>
+    <div class="row">
+
+      {{#each news}}
+
+
+      <div class="col s12 m12">
+        <div class="card ">
+          <div class="card-content ">
+            <span class="card-title">{{this.title}}</span>
+            <p>{{this.date}}</p>
+            <p>{{this.description}}</p>
+            <hr>
+            <p>{{this.text  }}</p>
+          </div>
+
+        </div>
+      </div>
+      {{/each}}
+    </div>
   </div>
 </body>
 

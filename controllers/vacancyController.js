@@ -13,7 +13,9 @@ exports.postVacancy = async (req, res) => {
         email: req.body.email,
         position: req.body.position
       });
-      res.send("<h1>Ваша заявка успешно отправлена</h1>");
+      //res.send("alert.html");
+      //res.redirect("alert.html");
+      res.status(200).render("alert-vacancy.hbs");
     }
   } catch (error) {
     console.log("gg");

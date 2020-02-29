@@ -3,14 +3,32 @@
   <form class="form" method="post" enctype="multipart/form-data" action="/vacancy">
     <h1>Вакансии</h1>
     <p>Если вы хотите работать у нас, отправьте резюме с помощью формы</p>
-    <label>Ваше имя</label>
-    <input type="text" name="name">
-    <label>Email</label>
-    <input type="email" name="email">
-    <label>Желаемая должность</label>
-    <input type="text" name="position">
-    <label>Прикрепите ваше резюме в формате docx</label>
-    <input type="file" name="filedata" /><br><br>
-    <input type="submit" value="Send" />
+    <div class="input-field">
+      <label for="name">Ваше имя</label>
+      <input id="name" type="text" name="name">
+    </div>
+    <div class="input-field">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email">
+    </div>
+    <div class="input-field">
+      <label for="position">Желаемая должность</label>
+      <input id="position" type="text" name="position">
+    </div>
+    <label for="first_name">Прикрепите ваше резюме в формате docx</label>
+    <div class="file-field input-field">
+
+
+      <div class="btn waves-effect red">
+        <span>Выберете файл</span>
+        <input type="file" name="filedata">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+
+      </div>
+    </div>
+
+    <button class="waves-effect red btn" type="submit" value="Send">Отправить</button>
   </form>
 </div>

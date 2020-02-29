@@ -8,10 +8,18 @@
 
 <body>
   <h1>Наша Команда</h1>
-  {{#each team}}
-  <h2><a href="/team/{{this._id}}">{{this.name}} {{this.family}}</a></h2>
-  <p>{{this.position}}</p>
-  <hr>
-  {{/each}}
+  <div class="row">
+    {{#each team}}
+
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-content ">
+          <span class="card-title"><a href="/team/{{this._id}}">{{this.name}} {{this.family}}</a></span>
+          <p>{{this.position}}</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
 </body>
 <html>

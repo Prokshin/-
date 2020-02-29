@@ -8,11 +8,26 @@
 
 <body>
   <h1>Наши Проекты</h1>
-  {{#each projects}}
-  <div class="card">
-    <h2><a href="/project/{{this._id}}">{{this.title}}</a></h2>
-    <p>{{this.description}}</p>
+  <div class="row">
+    {{#each projects}}
+
+
+    <div class="col s12 m6">
+      <div class="card red">
+        <div class="card-content white-text">
+          <span class="card-title">{{this.title}}</span>
+          <p>{{this.description}}</p>
+
+
+        </div>
+        <div class="card-action ">
+          <a class="white-text" href="/project/{{this._id}}">Подробнее</a>
+        </div>
+
+      </div>
+    </div>
+
+    {{/each}}
   </div>
-  {{/each}}
 </body>
 <html>
