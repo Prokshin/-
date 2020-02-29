@@ -12,9 +12,10 @@
   <p>{{this.position}}</p>
   <form method="GET" action="http://127.0.0.1:9000/{{this.url}}">
     <button class="btn green" type="submit">Скачать файл</button>
-    <button class="btn red" onclick="del(this.getAttribute('key'))" key="{{this._id}}">Удалить</button>
-  </form>
 
+  </form>
+  <hr>
+  <button class="btn red" onclick="del(this.getAttribute('key'))" key="{{this._id}}">Удалить</button>
 </div>
 {{/each}}
 <script src=" http://127.0.0.1:9000/deleteVacancy.js"></script>

@@ -14,11 +14,15 @@ const Create = async (title, description, text) => {
     body: JSON.stringify({ title, description, text }) // тип данных в body должен соответвовать значению заголовка "Content-Type"
   });
   alert("Проект создан");
-  window.location.replace("/admin");
+  window.location.replace("/admin/project");
 };
+console.log(document.getElementById("title  "));
+document.getElementById("create-btn").addEventListener("click", e => {
+  console.log("gggg");
+  console.log(document.getElementById("title").value);
+  console.log(document.getElementById("description").value);
+  console.log(document.getElementById("text").value);
 
-document.querySelector(".form").addEventListener("submit", e => {
-  e.preventDefault();
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
   const text = document.getElementById("text").value;
