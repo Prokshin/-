@@ -5,6 +5,7 @@ const projectController = require("../controllers/projectController");
 const userContoller = require("../controllers/userController");
 const newsConroller = require("../controllers/newsController");
 const vacancyController = require("../controllers/vacancyController");
+const coockie = require("cookie-parser");
 
 const multer = require("multer");
 var storage = multer.diskStorage({

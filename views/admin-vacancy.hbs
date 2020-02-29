@@ -1,13 +1,20 @@
+<div class="card-panel z-depth-0">
+  <a class="btn blue-grey darken-3 waves-effect" href=" project">Проекты</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="news">Новости</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="user">Участники</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="vac">Заявки</a>
+</div>
 <h1>Заявки</h1>
 {{#each vac}}
-<div class="card">
-  <h2><a href="admin/vac/{{this._id}}">{{this.name}}</a></h2>
+<div class="card-panel">
+  <h2>{{this.name}}</h2>
   <p>{{this.email}}</p>
   <p>{{this.position}}</p>
   <form method="GET" action="http://127.0.0.1:9000/{{this.url}}">
-    <button type="submit">Скачать файл</button>
+    <button class="btn green" type="submit">Скачать файл</button>
+    <button class="btn red" onclick="del(this.getAttribute('key'))" key="{{this._id}}">Удалить</button>
   </form>
-  <button onclick="del(this.getAttribute('key'))" key="{{this._id}}"" >Удалить</button>
+
 </div>
 {{/each}}
 <script src=" http://127.0.0.1:9000/deleteVacancy.js"></script>

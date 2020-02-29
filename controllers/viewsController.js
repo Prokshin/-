@@ -3,6 +3,7 @@ const Team = require("../models/teamModel");
 const News = require("../models/newsModel");
 const Vac = require("../models/vacancyModel");
 const date = require("date-and-time");
+const User = require("../models/userModel");
 
 exports.getHome = (req, res) => {
   res.status(200).render("home.hbs");
@@ -26,14 +27,14 @@ exports.getProject = async (req, res, next) => {
 };
 
 exports.getTeam = async (req, res, next) => {
-  const team = await Team.find();
+  const team = await User.find();
   res.render("team.hbs", {
     team
   });
 };
 
 exports.getMember = async (req, res) => {
-  const member = await Team.findById(req.params.id);
+  const member = await User.findById(req.params.id);
   res.render("team-page.hbs", {
     name: member.name,
     family: member.family,

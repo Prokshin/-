@@ -1,18 +1,41 @@
-<form class="form">
-  <h1>Создать пользователя</h1>
-  <label>Введите имя</label>
-  <p><input id="name" name="name" type="text"></p>
-  <label>Введите фамилию</label>
-  <p><input id="family" name="family" type="text"></p>
-  <label>Введите описание</label>
-  <p><input id="description" name="description" type="text"></p>
-  <label>Введите должность</label>
-  <p><input id="position" name="position" type="text"></p>
-  <label>Введите email</label>
-  <p><input id="email" name="email" type="email"></p>
-  <label>Введите пароль</label>
-  <p><input id="password" name="password" type="password"></p>
+<div class="card-panel z-depth-0">
+  <div>
+    <a class="btn blue-grey darken-3 waves-effect" href=" project">Проекты</a>
+    <a class="btn blue-grey darken-3 waves-effect" href="news">Новости</a>
+    <a class="btn blue-grey darken-3 waves-effect" href="user">Участники</a>
+    <a class="btn blue-grey darken-3 waves-effect" href="vac">Заявки</a>
 
-  <button>Создать</button>
-</form>
+  </div>
+
+  <form class="form ">
+
+    <h1>Создать пользователя</h1>
+    <div class="input-field">
+      <label for="name">Имя</label>
+      <input id="name" name="name" type="text">
+    </div>
+    <div class="input-field">
+      <label for="family">Фамилия</label>
+      <input id="family" name="family" type="text">
+    </div>
+    <div class="input-field">
+      <label for="description">Информация о пользователе</label>
+      <input id="description" name="description" type="text">
+    </div>
+    <div class="input-field">
+      <label for="position">Должность</label>
+      <input id="position" name="position" type="text">
+    </div>
+
+    <div class="input-field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email">
+    </div>
+    <div class="input-field">
+      <label for="password">Пароль</label>
+      <input id="password" name="password" type="password">
+    </div>
+    <button type="submit" class="btn green">Создать</button>
+  </form>
+</div>
 <script src="http://127.0.0.1:9000/createUser.js"></script>

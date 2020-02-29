@@ -1,11 +1,25 @@
-<form class="form">
-  <h1>Создать новость</h1>
-  <label>Введите название</label>
-  <p><input id="title" name="title" type="text"></p>
-  <label>Введите описание</label>
-  <p><input id="description" name="description" type="text"></p>
-  <label>Введите текст новости(поддерживаются html теги)</label>
-  <p><textarea id="text" name="text"></textarea></p>
-  <button>Создать</button>
-</form>
+<div class="card-panel z-depth-0">
+  <a class="btn blue-grey darken-3 waves-effect" href=" project">Проекты</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="news">Новости</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="user">Участники</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="vac">Заявки</a>
+
+  <form class="form">
+    <h1>Создать новость</h1>
+    <div class="input-field">
+      <label for="title">Название новости</label>
+      <input id="title" name="title" type="text">
+    </div>
+    <div class="input-field">
+      <label for="title">Описание новости</label>
+      <input id="description" name="description" type="text">
+    </div>
+    <div class="input-field">
+      <label for="text">Введите текст новости</label>
+      <textarea class="materialize-textarea" id="text" name="text"></textarea>
+    </div>
+
+    <button class="btn green">Создать</button>
+  </form>
+</div>
 <script src="http://127.0.0.1:9000/createNews.js"></script>

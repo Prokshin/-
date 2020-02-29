@@ -1,20 +1,47 @@
-<form class="form">
-  <h1>Создать проект</h1>
-  <label>Введите название</label>
-  <p><input id="title" name="title" type="text"></p>
-  <label>Введите описание</label>
-  <p><input id="description" name="description" type="text"></p>
-  <label>Введите текст проекта(поддерживаются html теги)</label>
-  <p><textarea id="text" name="text"></textarea></p>
-  <button>Создать</button>
+<form class="card-panel z-depth-0">
+  <a class="btn blue-grey darken-3 waves-effect" href=" project">Проекты</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="news">Новости</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="user">Участники</a>
+  <a class="btn blue-grey darken-3 waves-effect" href="vac">Заявки</a>
+
+  <h1>Удалить проект</h1>
+  <div class="row">
+    {{#each projects}}
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-3">
+        <div class="card-content white-text">
+          <span class="card-title">{{this.title}}</span>
+          <p>{{this.description}}</p>
+        </div>
+        <div class="card-action ">
+          <button class="waves-effect btn red" onclick="del(this.getAttribute('key'))"
+            key="{{this._id}}">Удалить</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <form class="form">
+    <h1>Создать проект</h1>
+    <div class="input-field">
+      <label for="name">Название проекта</label>
+      <input id="title" name="title" type="text">
+    </div>
+    <div class="input-field">
+      <label for="description">Описание проекта</label>
+      <input id="description" name="description" type="text">
+    </div>
+
+    <div class="input-field">
+      <label for="text">Контент проекта (поддерживаются html теги)</label>
+      <textarea class="materialize-textarea" id="text" name="text"></textarea>
+    </div>
+
+
+    <button class="waves-effect btn green">Создать</button>
+  </form>
 </form>
-{{#each projects}}
-<div class="card">
-  <h2><a href="admin/vac/{{this._id}}">{{this.title}}</a></h2>
-  <p>{{this.description}}</p>
-  <button onclick="del(this.getAttribute('key'))" key="{{this._id}}">Удалить</button>
-</div>
-{{/each}}
 
 <script src="http://127.0.0.1:9000/createProject.js"></script>
 <script src="http://127.0.0.1:9000/deleteProject.js"></script>
